@@ -57,7 +57,7 @@ public class ParameterController {
 		
 		// debug : 코드 오류 해결
 		// -> 코드 오류는 없는데 정상 수행이 안될 때
-		// -> 값이 잘못된 결우-> 값ㄷ 추적
+		//  -> 값이 잘못된 경우-> 값 추적
 		log.debug("inputName : " + inputName);
 		log.debug("inputAddress : " + inputAddress);
 		log.debug("inputAge : " + inputAge);
@@ -83,7 +83,7 @@ public class ParameterController {
 	 * 
 	 * 
 	 * [속성 추가 작성법]
-	 * @RequestParam(value="name", required="fasle", defaultValue="1") 
+	 * @RequestParam(value="name", required="false", defaultValue="1") 
 	 * 
 	 * value : 전달 받은 input 태그의 name 속성값
 	 * 
