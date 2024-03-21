@@ -35,13 +35,12 @@ public class TestController {
 	//	ex) /todo/insert, /todo/select, /todo/update
 	
 	// @RequestMapping("todo") 
-	// public class 클래스명()
-	
-	// 	@ReuquestMapping("insert")  // /todo/insert 매핑
-	//	public String 메서드명(){
-	
-	// 	@ReuquestMapping("insert")  // /todo/update 매핑
-	//	public String 메서드명(){
+	// public class 클래스명{
+	// 	 @ReuquestMapping("insert")  // /todo/insert 매핑
+	//	 public String 메서드명(){}
+	// 	 @ReuquestMapping("update")  // /todo/update 매핑
+	//	 public String 메서드명(){}
+	// }
 	
 	
 	/* ************************************************* */
@@ -50,14 +49,13 @@ public class TestController {
 	// 매핑 주소 제일 앞에 "/"를 작성하지 않는다!!!!!!
 	/* ***************************************************/
 	
-	@RequestMapping("test") // test 요청시 처리할 메서드 매핑
+	@RequestMapping("test") // /test 요청시 처리할 메서드 매핑
 	public String testMethod() {
 		System.out.println("/test 요청 받음");
 		
 		/* Controller 메서드의 반환형이 String 인 이유
 		 * - 메서드에서 반환되는 문자열이
-		 * 	 forwart할 html파일의 경로가 되기때문
-		 * 
+		 * 	 forward할 html파일의 경로가 되기때문
 		 * */
 		
 		/* Thymeleaf : JSP대신 사용하는 템플릿 엔진
