@@ -15,6 +15,9 @@ import edu.kh.todo.model.dto.Todo;
  * - Mybatis에서 제공하는 Mapper 상속 객체가 Bean으로 등록됨
  */
 
+/**
+ * 
+ */
 @Mapper
 public interface TodoMapper {
 
@@ -38,6 +41,35 @@ public interface TodoMapper {
 	 * @return result
 	 */
 	int addTodo(Todo todo);
+
+	/** 할 일 상세 조회
+	 * @param todoNo
+	 * @return todo
+	 */
+	Todo todoDetail(int todoNo);
+
+	/** 할 일 삭제
+	 * @param todoNo
+	 * @return result
+	 */
+	int todoDelete(int todoNo);
+
+	/** 할 일 수정
+	 * @param todo
+	 * @return result
+	 */
+	int todoUpdate(Todo todo);
+
+	/** 완료 여부 변경
+	 * @param todo
+	 * @return result
+	 */
+	int changeComplete(Todo todo);
+
+	/** 전체 할 일 개수 조회
+	 * @return totalCount
+	 */
+	int getTotalCount();
 	
 	
 
