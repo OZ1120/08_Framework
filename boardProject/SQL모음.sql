@@ -81,6 +81,11 @@ FROM "MEMBER";
 WHERE MEMBER_EMAIL = ?
 AND MEMBER_DEL_FL = 'N'
 
+-- 이메일 중복 검사 (탈퇴 안한 회원 중 같ㅇ츤 이메일 있는지 조회)
+SELECT count(*)
+FROM "MEMBER" 
+WHERE MEMBER_DEL_FL = '"MEMBER" m'
+AND MEMBER_Email = 'member*@kh.or.kr';
 
 
 

@@ -97,6 +97,19 @@ public class MemberServiceImpl implements MemberService{
 		// -> Mybatis에 의해서 자동으로 SQL이 수행됨
 		//  (매퍼 메서드 호출 시 SQL에 사용할 파라미터는 1개만 전달 가능)
 		return mapper.signup(inputMember);
+		
+	}
+
+	// 이메일 중복 검사
+	@Override
+	public int checkEmail(String memberEmail) {
+		return mapper.checkEmail(memberEmail);
+	}
+	
+	// 닉네임 중복 검사
+	@Override
+	public int checkNickname(String memberNickname) {
+		return mapper.checkNickname(memberNickname);
 	}
 	
 	
