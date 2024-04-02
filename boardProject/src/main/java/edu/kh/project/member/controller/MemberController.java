@@ -219,6 +219,31 @@ public class MemberController {
 		return service.checkNickname(memberNickname);
 	}
 	
+	/** 빠른 로그인
+	 * @param memberEmail
+	 * @param model
+	 * @param ra
+	 * @return
+	 */
+	@GetMapping("quickLogin")
+	public String quickLogin(
+			@RequestParam("memberEmail")String memberEmail,
+			Model model, 
+			RedirectAttributes ra) {
+		
+		Member loginMember = service.quickLogin(memberEmail);
+		
+		if(loginMember == null) {
+			ra.addFlashAttribute("message", "해당 이메일 회원이 존재하지 않습니다");
+		}else {
+			model.addAttribute("loginMember", loginMember);
+		}
+		
+		
+		return "redirect:/";
+	}
+	
+	
 	
 	
 }//

@@ -74,7 +74,7 @@ function getTotalCount(){ // 함수 정의
 // completeCount 값 비동기 통신으로 얻어와 서 화면 출력
 function getCompleteCount(){
 
-  // fetch() : 비동기로 요청해서 결과 데이터 가벼오기
+  // fetch() : 비동기로 요청해서 결과 데이터 가져오기
 
   // 첫 번째 then의 response : 
   // - 응답 결과, 요청 주소, 응답 데이터 등이 담겨 있음
@@ -120,7 +120,7 @@ addBtn.addEventListener('click', () => {
 
   fetch("/ajax/add", {
     // key : value
-    method : "post", // PST방식 요청
+    method : "post", // POST방식 요청
     headers : {"Content-Type" : "application/json"}, // 요청 데이터의 형식을 JSON으로  지정
     body : JSON.stringify(param) // param 객체를 JSON(string)으로 변환
   })
@@ -207,7 +207,7 @@ const selectTodoList = () => { // \변수에 함수 호출
 
   .then(response => response.text()) // 응답결과를 text로 변환
 
-  .then(result => { // result == 첫 번째 then에서 반환딘 결과 값
+  .then(result => { // result == 첫 번째 then에서 반환된 결과 값
 
     console.log(result)
     console.log(typeof result);// 타입 검사 -> string

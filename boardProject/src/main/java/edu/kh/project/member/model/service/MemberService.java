@@ -29,6 +29,12 @@ public interface MemberService {
 	 */
 	int checkNickname(String memberNickname);
 
+	/** 빠른 로그인
+	 * @param memberEmail
+	 * @return loginMember
+	 */
+	Member quickLogin(String memberEmail);
+
 }
 
 

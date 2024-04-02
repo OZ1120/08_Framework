@@ -113,6 +113,26 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	
+	
+	// 빠른 로그인
+	// -> 일반 로그인에서 비밀번호 비교만 제외
+	@Override
+	public Member quickLogin(String memberEmail) {
+		
+		// 1. 이메일이 일치하면서 탈퇴하지 않은 회원 조회
+		Member loginMember = mapper.login(memberEmail);
+		
+		// 2. 만약에 일치하는 이메일이 없어서 조회결과가 null인 경우
+		// 탈퇴또는 없는 회원
+		if(loginMember == null) return null;
+		
+		// 조회된 비밀번호 null 변경
+		loginMember.setMemberPw(null);
+		
+		return loginMember;
+	}
+	
+	
 }
 
 /* BCrypt 암호화 (Spring Security 제공)

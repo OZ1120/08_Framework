@@ -91,12 +91,10 @@ public class EmailController {
 //@Autowired // 의존성 주입(DI)
 // private EmailService service;
 
-
-
-
 // setter 이용
 
 //private EmailService service;
+
 //@Autowired
 //public void setService(EmailService service) {
 //	this.service = service;
