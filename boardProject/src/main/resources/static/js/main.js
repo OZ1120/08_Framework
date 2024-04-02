@@ -137,7 +137,12 @@ selectMemberList.addEventListener("click", () =>{
     console.log(memberList);
 
     memberList.innerHTML = "";
+    
+    for(let member of memberList){
+      const tr = document.createElement("tr");
 
+      const arr = ["memberNo", "memberEmail", "memberNickname", ""];
+    }
 
   })
 })
