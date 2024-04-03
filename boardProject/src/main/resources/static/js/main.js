@@ -106,13 +106,21 @@ quickLoginBtns.forEach((item,index) => {
 const selectMemberList = document.querySelector("#selectMemberList");
 
 // tbody
-const memberList = document.querySelector("#mameberList");
+const memberList = document.querySelector("#memberList");
+
+// td요소를 만들고 text추가후 반환
+const createTd = (text) => {
+  const td = document.createElement("td");
+  td.innerText= text;
+  return td;
+}
 
 //조회 버튼 클릭시
 selectMemberList.addEventListener("click", () =>{
 
   // 1) 비동기로 회원 목록 조회
   //   (포함될 회원 정보 : 회원번호, 이메일, 닉네임, 탈퇴여부)
+
 
   //   첫번째 then(response => response.json()) ->
   //   JSON Array -> JS 객체 배열로 변환 [{},{},{},{}] 
@@ -125,27 +133,45 @@ selectMemberList.addEventListener("click", () =>{
   //    tbody에 들어갈 요소를 만들고 값 세팅 후 추가
 
 
-  fetch("/main/selectMember")
+  fetch("/member/selectMemberList")
   .then(response => response.json())
-  .then(result => {
+  .then(list => {
 
-    console.log(result)
-    console.log(typeof result)
-    
-    const memberList = JSON.stringify(result);
+    console.log(list)
 
-    console.log(memberList);
-
+    // 이전 내용 삭제
     memberList.innerHTML = "";
-    
-    for(let member of memberList){
-      const tr = document.createElement("tr");
 
-      const arr = ["memberNo", "memberEmail", "memberNickname", ""];
-    }
+    list.forEach((member, index)=>{
+
+      // membr : 반복 접근한 요소(순서대로 하나씩 꺼낸 요소)
+      // index : 현재 접근중인 index
+
+      // tr 만들어서 그 안에 td 만들어서 append 후
+      // tr을 tbody에 append
+
+      const keyList = ['memberNo', 'memberEmail', 'memberNickname', 'memberDelFl']
+
+      const tr = document.createElement("tr"); 
+
+      // keyList 에서 key를 하나씩 얻어온 후
+      // 해당 key에 맞는 member 객체 값을 얻어와
+      // 생성되는 td 요소에 innerText로 추가후
+      // tr 요소의 자식으로 추가
+      keyList.forEach( key => {
+        const td = createTd(member[key])
+        tr.append(td);
+        //tr.append(createTd(member[key])); -한줄
+      })
+     // == keyList.forEach( key => tr.append( createTd(member[key]) ) );
+
+     // tbody 자식으로 tr추가
+     memberList.append(tr);
+        
+    })
 
   })
-})
+});
 
 // todoList 비동기 참고
 

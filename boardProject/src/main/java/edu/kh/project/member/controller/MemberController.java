@@ -1,5 +1,7 @@
 package edu.kh.project.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -243,6 +245,16 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@ResponseBody
+	@GetMapping("selectMemberList")
+	public List<Member> selectMemberList() {
+		
+		// (java)List -> (Spring)HttpMessageConverter 가 JSON Array(문자열)로 변경 \(스트링형태인 JSON으로 변경)
+		// -> response.json() -> [{},{},{}] JS 객체 배열
+		//\ 데이터 형식이 계속 변환된다(JSON Array로 변환해서 보내준다)
+		// 리스트가 문자열 문자열이 제이슨으로 ....
+		return service.selectMemberList();
+	}
 	
 	
 	
