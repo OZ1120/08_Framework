@@ -28,6 +28,27 @@
 
         <hr>
 
+        <h3>특정 회원 비밀번호 초기화(Ajax)비동기</h3>
+
+        <div>
+          회원번호 :
+          <input type="text" id="resetMemberNo">
+          <button id="resetPw">비밀번호 초기화(pass01!)</button>
+        </div>
+
+        <hr>
+
+        <h3>특정 회원 탈퇴 복구(Ajax)</h3>
+
+        <div>
+          탈퇴 복구 : 
+          <input type="text" id="backSecession">
+          <button id="backBtn">복구하기</button>
+        </div>
+
+
+        <hr>
+
         <h3>
           회원 목록 조회(비동기)
           <BUtton id="selectMemberList">조회</BUtton>
@@ -129,6 +150,7 @@
       </section>
     </section>
   </main>
+
 
   <!-- common/footer.html 추가 -->
   <th:block th:replace="~{common/footer}"></th:block>
