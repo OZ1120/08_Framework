@@ -34,6 +34,12 @@ public class FileConfig implements WebMvcConfigurer {
 	@Value("${spring.servlet.multipart.max-file-size}")
 	private String locating; // 입계값 초과 시 임시 저장 폴더 경로
 	
+	@Value("${my.profile.resource-handler}")
+	private String profileResourceHandler; // 프로필 이미지 요청 주소
+	
+	@Value("${my.profile.resource-location}")
+	private String profileResourceLocation; // 프로필 이미지 요청 시 연결할 서버폴더 경로
+	
 	
 	// 요청 주소에 따라
 	// 서버 컴퓨터의 어떤 경로에 접근할지 설정
@@ -41,13 +47,18 @@ public class FileConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
 		registry
-		.addResourceHandler("/myPage/file/**") // 클라이언트 요청 주소 패턴
-		.addResourceLocations("file:///C:\\uploadFiles\\test\\");
+		.addResourceHandler("/myPage/file/**") // 클라이언트 요청 주소 패턴 :: 이주소로 오면
+		.addResourceLocations("file:///C:\\uploadFiles\\test\\"); // :: 해당 폴더로 요청 - 이 경로에서 가져오기
 		
+		
+		// 프로필 이미지 요청 = 서버 폴더 연결 추가
+		registry
+		 .addResourceHandler(profileResourceHandler) // /myPage/profile
+		 .addResourceLocations(profileResourceLocation); 
 	}
 	
 	
-	/* MultipartResolver 설정 */
+	/* MultipartResolver 설정 :: 조건 */
 	@Bean
 	public MultipartConfigElement configElement() {
 		
@@ -56,6 +67,7 @@ public class FileConfig implements WebMvcConfigurer {
 		factory.setFileSizeThreshold(DataSize.ofBytes(filedSizeThredhod));
 		
 		factory.setMaxFileSize(DataSize.ofBytes(maxFileSize));
+		
 		factory.setMaxRequestSize(DataSize.ofBytes(maxFileSize));
 		
 		factory.setLocation(locating);
