@@ -32,3 +32,17 @@ selectBookList.addEventListener("click", ()=>{
 
 
 // ----------------------------------------------------------------------------
+
+
+/* 책 등록  */
+
+// 등록 버튼
+const addBtn = document.querySelector("#add-btn");
+
+const add = document.querySelector("#add");
+
+addBtn.addEventListener("click",()=>{
+
+});
+
+
