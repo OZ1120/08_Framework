@@ -457,11 +457,22 @@ ALTER TABLE "BOOK" ADD CONSTRAINT "PK_BOOK" PRIMARY KEY (
 );
 
 
+CREATE SEQUENCE SEQ_BOOK_NO NOCACHE;
+
 SELECT * FROM BOOK;
 
 INSERT INTO BOOK
 VALUES ('1', '책제목1', '글쓴이1','3000',DEFAULT);
 
+
+
+INSERT INTO BOOK 
+VALUES (SEQ_BOOK_NO.NEXTVAL, 
+				'책제목2', 
+				'글쓴이', 
+				'4000', 
+				DEFAULT);
+			
 COMMIT;
 -------------------------------------------------------------------------------
 

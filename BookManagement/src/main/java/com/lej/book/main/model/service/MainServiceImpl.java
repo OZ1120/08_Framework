@@ -19,5 +19,15 @@ public class MainServiceImpl implements MainService{
 	public List<BookList> selectBookList() {
 		return mapper.selectBookList();
 	}
+	
+	
+	// 책 등록
+	@Override
+	public int addBook(String bookTitle, String bookWriter, int bookPrice) {
+		int result = mapper.addBook(bookTitle,bookWriter,bookPrice);
+		
+		
+		return result;
+	}
 
 }

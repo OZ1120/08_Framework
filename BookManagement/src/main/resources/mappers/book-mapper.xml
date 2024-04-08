@@ -8,4 +8,15 @@
 			 TO_CHAR(REG_DATE,'YYYY-MM-DD') REG_DATE
 		FROM "BOOK"
 	</select>
+	
+	<!-- 책 등록 -->
+	<insert id="addBook">
+		INSERT INTO BOOK 
+		VALUES (SEQ_BOOK_NO.NEXTVAL, 
+					#{bookTitle], 
+					#{bookWriter}, 
+					#{bookPrice}, 
+					DEFAULT)
+	</insert>
+	
 </mapper>

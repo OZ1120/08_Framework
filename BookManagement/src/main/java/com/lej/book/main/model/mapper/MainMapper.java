@@ -14,4 +14,12 @@ public interface MainMapper {
 	 */
 	List<BookList> selectBookList();
 
+	/** 책 등록
+	 * @param bookTitle
+	 * @param bookWriter
+	 * @param bookPrice
+	 * @return
+	 */
+	int addBook(String bookTitle, String bookWriter, int bookPrice);
+
 }
