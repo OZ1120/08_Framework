@@ -21,7 +21,7 @@ repositories {
 	mavenCentral()
 }
 
-// 외부 연결된 사이트에서
+// 외부 연결된 사이트(https://mvnrepository.com/)에서
 // 아래에 작성된 모듈, 라이브러리를 다운로드 받아서 프로젝트에 자동으로 추가
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
