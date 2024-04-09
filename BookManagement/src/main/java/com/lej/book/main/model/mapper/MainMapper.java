@@ -20,6 +20,6 @@ public interface MainMapper {
 	 * @param bookPrice
 	 * @return
 	 */
-	int addBook(String bookTitle, String bookWriter, int bookPrice);
+	int addBook(BookList book);
 
 }

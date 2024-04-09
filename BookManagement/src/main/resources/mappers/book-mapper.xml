@@ -13,7 +13,7 @@
 	<insert id="addBook">
 		INSERT INTO BOOK 
 		VALUES (SEQ_BOOK_NO.NEXTVAL, 
-					#{bookTitle], 
+					#{bookTitle}, 
 					#{bookWriter}, 
 					#{bookPrice}, 
 					DEFAULT)

@@ -24,10 +24,12 @@ public class MainServiceImpl implements MainService{
 	// 책 등록
 	@Override
 	public int addBook(String bookTitle, String bookWriter, int bookPrice) {
-		int result = mapper.addBook(bookTitle,bookWriter,bookPrice);
+		BookList book = new BookList();
+		book.setBookTitle(bookTitle);
+		book.setBookWriter(bookWriter);
+		book.setBookPrice(bookPrice);
 		
-		
-		return result;
+		return mapper.addBook(book);
 	}
 
 }
