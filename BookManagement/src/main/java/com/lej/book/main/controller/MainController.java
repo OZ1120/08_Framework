@@ -70,10 +70,10 @@ public class MainController {
 		
 		if(result>0) {
 			message= "등록 성공";
-			path = "common/main" ;
+			path = "" ;
 		}else {
 			message = "등록에 실패하였습니다";
-			path = "common/register";
+			path = "register";
 		}
 		
 		ra.addFlashAttribute("message", message);

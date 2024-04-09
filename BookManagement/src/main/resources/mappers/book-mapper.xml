@@ -3,7 +3,7 @@
 <mapper namespace="com.lej.book.main.model.mapper.MainMapper">
 
 	<!-- 모든 책 조회 -->
-	<select id="selectBookList">
+	<select id="selectBookList" resultType="BookList">
 		SELECT BOOK_NO, BOOK_TITLE, BOOK_WRITER, BOOK_PRICE,
 			 TO_CHAR(REG_DATE,'YYYY-MM-DD') REG_DATE
 		FROM "BOOK"
