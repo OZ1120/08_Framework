@@ -97,7 +97,7 @@ public class ParameterController {
 	
 	
 	// 400 Bad Request (잘못된 요청)
-	// - 파라미터 불충분 상황
+	// - 파라미터 불충분 상황 : 매개변수 4개 받기로했는데 파라미터는 3개다? 안된다아아아아아아아아ㅏㅏ
 	
 	@PostMapping("test2")
 	public String paramTest2(

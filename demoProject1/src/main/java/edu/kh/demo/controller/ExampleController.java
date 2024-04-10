@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 // instance : 개발자가 만들고 관리하는 객체
 
-// Bean : 스프링이 만들고 관리하는 객체
 
 @Controller // 요청 / 응답 제어 역할 명시 + Bean 등록
 public class ExampleController {
