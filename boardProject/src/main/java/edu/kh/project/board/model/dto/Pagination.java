@@ -12,8 +12,8 @@ public class Pagination {
 	private int currentPage;		// 현재 페이지 번호
 	private int listCount;			// 전체 게시글 수
 	
-	private int limit = 10;			// 한 페이지 목록에 보여지는 게시글 수
-	private int pageSize = 10;		// 보여질 페이지 번호 개수
+	private int limit = 10;			// 한 페이지 목록에 보여지는 게시글 수 :: 임의 지정
+	private int pageSize = 10;		// 보여질 페이지 번호 개수 :: 임의 지정
 	
 	private int maxPage;			// 마지막 페이지 번호 (첫페이지는 1)
 	private int startPage;			// 보여지는 맨 앞 페이지 번호 
