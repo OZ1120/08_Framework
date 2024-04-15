@@ -813,6 +813,9 @@ WHERE USER_ID = 'gd_hong';
 
 COMMIT;
 
+SELECT * FROM TB_USER 
+WHERE USER_NO = 1;
+
 
 ----==-------------------------------------------------------
 
