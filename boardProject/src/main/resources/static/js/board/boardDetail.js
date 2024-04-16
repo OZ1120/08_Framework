@@ -66,3 +66,22 @@ boardLike.addEventListener("click", e =>{
 
 });
 
+
+/* 게시글 삭제 */
+
+const deleteBtn = document.querySelector("#deleteBtn");
+
+deleteBtn.addEventListener("click", () => {
+
+  //1. 삭제 버튼 클릭 시
+  // "삭제 하시겠습니까?"  (확인/취소)  출력
+  if( !confirm("삭제 하시겠습니까?")){
+    alert("취소됨");
+    return;
+  }
+
+
+  // 확인 클릭시 :; 겟방식
+  location.href="/editBoard/" + boardCode+ "/" +boardNo + "/delete";
+
+})

@@ -253,6 +253,9 @@ public class BoardController {
 		return service.boardLike(map);
 	}
 	
+
+	
+	
 	
 }//
 

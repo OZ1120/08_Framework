@@ -719,6 +719,62 @@ SELECT * FROM BOARD_LIKE;
 
 
 
+/* 여러 행을 항 번에 삽입하는 방법 ! -> INSERT + SUBQUERY */
+
+
+-- 시뭔스 번호는 이 위ㅣ에 사용할수 없습니다
+--> 시퀀스로 번호 생성하는 부분을 별도 함수로 분리후 호출하면 문제 없음
+
+INSERT INTO "BOARD_IMG"
+(
+	SELECT NEXT_IMG_NO(), '경로1', '원본1', '변경1', 1, 1998 FROM DUAL
+	UNION
+	SELECT NEXT_IMG_NO(), '경로2', '원본2', '변경2', 2, 1998 FROM DUAL
+	UNION
+	SELECT NEXT_IMG_NO(), '경로3', '원본3', '변경3', 3, 1998 FROM DUAL
+);
+
+SELECT * FROM BOARD_IMG ;
+
+SELECT SEQ_IMG_NO.NEXTVAL FROM DUAL;
+
+
+ROLLBACK;
+
+-- SEQ_IMG_NO 시퀀스의 다음값을 반환하는 함수 생성
+CREATE OR REPLACE FUNCTION NEXT_IMG_NO
+-- 반환형
+RETURN NUMBER 
+-- 사용할 변수
+IS  IMG_NO NUMBER; 
+
+BEGIN 
+	SELECT SEQ_IMG_NO.NEXTVAL 
+	INTO IMG_NO
+	FROM DUAL;
+
+	RETURN IMG_NO;
+END;
+;
+-- :: 마지막; 오류가능성 있어서 찍어주기
+
+SELECT NEXT_IMG_NO() FROM DUAL;
+
+----
+
+-- 게시글 삭제
+
+SELECT *
+FROM BOARD b 
+WHERE BOARD_DEL_FL = 'Y';
+
+UPDATE BOARD 
+SET BOARD_DEL_FL = 'Y'
+WHERE BOARD_CODE = 1
+AND BOARD_NO = 2000;
+
+ROLLBACK;
+
 
 
 -----------------------------------------------------------------------
@@ -730,52 +786,6 @@ SELECT * FROM BOARD_LIKE;
 
 
 
--------------------------------------------------------------------------------
-/* 책 관리 프로젝트 (연습용) */
-
-CREATE TABLE "BOOK" (
-	"BOOK_NO"	NUMBER		NOT NULL,
-	"BOOK_TITLE"	NVARCHAR2(50)		NOT NULL,
-	"BOOK_WRITER"	NVARCHAR2(20)		NOT NULL,
-	"BOOK_PRICE"	NUMBER		NOT NULL,
-	"REG_DATE"	DATE	DEFAULT SYSDATE	NOT NULL
-);
-
-COMMENT ON COLUMN "BOOK"."BOOK_NO" IS '책 번호';
-
-COMMENT ON COLUMN "BOOK"."BOOK_TITLE" IS '책 제목';
-
-COMMENT ON COLUMN "BOOK"."BOOK_WRITER" IS '글쓴이';
-
-COMMENT ON COLUMN "BOOK"."BOOK_PRICE" IS '가격';
-
-COMMENT ON COLUMN "BOOK"."REG_DATE" IS '등록일';
-
-ALTER TABLE "BOOK" ADD CONSTRAINT "PK_BOOK" PRIMARY KEY (
-	"BOOK_NO"
-);
-
-
-CREATE SEQUENCE SEQ_BOOK_NO NOCACHE;
-
-SELECT * FROM BOOK;
-
-INSERT INTO BOOK
-VALUES ('1', '책제목1', '글쓴이1','3000',DEFAULT);
-
-
-
-INSERT INTO BOOK 
-VALUES (SEQ_BOOK_NO.NEXTVAL, 
-				'책제목2', 
-				'글쓴이', 
-				'4000', 
-				DEFAULT);
-
-DELETE FROM BOOK 
-WHERE BOOK_NO IN ('5','6');
-
-COMMIT;
 -------------------------------------------------------------------------------
 
 

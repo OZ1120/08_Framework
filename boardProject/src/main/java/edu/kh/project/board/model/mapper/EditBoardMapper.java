@@ -1,0 +1,32 @@
+package edu.kh.project.board.model.mapper;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import edu.kh.project.board.model.dto.Board;
+import edu.kh.project.board.model.dto.BoardImg;
+
+@Mapper
+public interface EditBoardMapper {
+
+	/** 게시글 작성
+	 * @param inputBoard
+	 * @return result
+	 */
+	int boardInsert(Board inputBoard);
+
+	/** 게시글 이미지 모두 삽입
+	 * @param uploadList
+	 * @return result(몇행 삽입)
+	 */
+	int insertUploadList(List<BoardImg> uploadList);
+
+	/**
+	 * @param map
+	 * @return
+	 */
+	int boardDelete(Map<String, Integer> map);
+
+}

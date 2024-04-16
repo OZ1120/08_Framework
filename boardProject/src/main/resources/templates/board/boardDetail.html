@@ -48,7 +48,7 @@
                     <!-- 좋아요 하트 -->
                     <span class="like-area">
                         
-                        <!-- 비동기로 좋아요 누를 때 동작(4/22 월요일 예정) -->
+                        <!-- 비동기로 좋아요 누를 때 동작-->
                         <!-- 좋아요 누른적이 있으면 fa-solid, 없으면 fa-regular 클래스 추가 -->
                         <i class="fa-heart " id="boardLike"
                            th:classappend="*{likeCheck == 1} ? fa-solid : fa-regular"></i>
@@ -155,6 +155,8 @@
 
         /* 현재 게시글 번호를 전역 변수로 저장 */
         const boardNo = /*[[${board.boardNo}]]*/"게시글 번호";
+        
+        const boardCode = /*[[${board.boardCode}]]*/"게시판 번호";
 
         /* 현재 게시글 좋아요 여부(boardLike)를 전역 변수로 저장 */
         let likeCheck = /*[[${board.likeCheck}]]*/"좋아요 여부";

@@ -51,7 +51,7 @@ public class InterceptorConfig implements WebMvcConfigurer{
 		// Bean으로 등록 된 BoardnameInterceptor 객체를 얻어와
 		// 인터셉터로 등록
 		registry.addInterceptor(boardNameInterceptor())
-		.addPathPatterns("/board/**", "/editBoard,**");
+		.addPathPatterns("/board/**", "/editBoard/**");
 		
 	}
 	
