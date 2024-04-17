@@ -47,6 +47,8 @@ const changeImageFn = (inputImage, order) => {
     inputImage.remove(); // 원본 삭제 ::원본 지우기 = 요소 하나로 : 백업본이 원본 역할 - 백업이라 이벤트 리스너 없음
     inputImage = temp; // 원본 변수에 백업본을 참조할 수 있게 대입 :: 변수명 변경
     // -> 백업본이 원본으로 변함
+
+    // :: 백업본이 이벤트 리스너는 복사를 못하므로
     // 백업본에 없는 이벤트 리스너를 다시 추가
     inputImage.addEventListener("change", e=>{
       changeImageFn(e.target.order);
@@ -59,7 +61,6 @@ const changeImageFn = (inputImage, order) => {
 
   if(file.size > maxSize){
     alert("10MB 이하의 이미지를 선택해 주세요");
-
 
     // 해당 순서의 backup 요소가 없거나,
     /// 요소는 있는데 값이 없는 경우 == 아무 파일도 선택된적 없을 때

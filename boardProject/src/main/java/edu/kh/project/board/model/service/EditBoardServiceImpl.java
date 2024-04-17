@@ -77,7 +77,7 @@ public class EditBoardServiceImpl implements EditBoardService{
 				
 				// IMG_PATH == sebPath
 				// BOARD_NO == boardNo
-				// IMG+ORDER == 1 (인덱스)	
+				// IMG_ORDER == 1 (인덱스)	
 				
 				// 원본명
 				String originalName = images.get(i).getOriginalFilename();
