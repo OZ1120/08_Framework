@@ -85,3 +85,43 @@ deleteBtn.addEventListener("click", () => {
   location.href="/editBoard/" + boardCode+ "/" +boardNo + "/delete";
 
 })
+
+
+
+/* --------- 게시글 수정 버튼 -------------  */
+const updateBtn = document.querySelector("#updateBtn");
+
+if(updateBtn!= null) { // 수정 버튼 존재
+  updateBtn.addEventListener("click", ()=>{
+
+    // 현재 : /board/1/2010?cp=1
+    // 목표 : /editBoard/1/2010/update?cp=1 (GET 방식)
+    location.href = location.pathname.replace('board', 'editBoard')
+                  + "/update"
+                  + location.search
+
+
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

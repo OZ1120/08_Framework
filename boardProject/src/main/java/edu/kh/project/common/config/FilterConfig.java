@@ -26,7 +26,7 @@ public class FilterConfig {
 		filter.setFilter(new LoginFilter());
 		
 		// /maPage/* : myPage로 시작하는 모든 요청
-		String[] filteringURL = {"/myPage/*"};
+		String[] filteringURL = {"/myPage/*","/editBoard/*"};
 
 		// 필터가 동작할 URL을 세팅
 		
