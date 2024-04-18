@@ -70,21 +70,23 @@ boardLike.addEventListener("click", e =>{
 /* 게시글 삭제 */
 
 const deleteBtn = document.querySelector("#deleteBtn");
+if(deleteBtn !=null){
 
-deleteBtn.addEventListener("click", () => {
-
-  //1. 삭제 버튼 클릭 시
-  // "삭제 하시겠습니까?"  (확인/취소)  출력
-  if( !confirm("삭제 하시겠습니까?")){
-    alert("취소됨");
-    return;
-  }
-
-
-  // 확인 클릭시 :; 겟방식
-  location.href="/editBoard/" + boardCode+ "/" +boardNo + "/delete";
-
-})
+  deleteBtn.addEventListener("click", () => {
+  
+    //1. 삭제 버튼 클릭 시
+    // "삭제 하시겠습니까?"  (확인/취소)  출력
+    if( !confirm("삭제 하시겠습니까?")){
+      alert("취소됨");
+      return;
+    }
+  
+  
+    // 확인 클릭시 :; 겟방식
+    location.href="/editBoard/" + boardCode+ "/" +boardNo + "/delete";
+  
+  })
+}
 
 
 
@@ -104,11 +106,24 @@ if(updateBtn!= null) { // 수정 버튼 존재
   })
 }
 
+// --------------------------------------------------------------
+/* 목록으로 돌아가는 버튼 */
+const goToListBtn = document.querySelector("#goToListBtn");
 
+goToListBtn.addEventListener("click", ()=>{
 
+  // 상세 조회 :/board/1/2014?cp=1
+  // 목록      :/board/1/2014
 
+  let url = location.pathname;
 
+  url = url.substring(0, url.lastIndexOf("/")); 
+        // ::자르기(마지막 / 위치 찾기)
 
+  location.href = url + location.search;
+                        // 쿼리스트링
+
+})
 
 
 
