@@ -939,15 +939,18 @@ JOIN "MEMBER" USING(MEMBER_NO)
 WHERE BOARD_DEL_FL = 'N'
 AND BOARD_CODE = 1
 
--- 제목에 '10'이 포함된 게시글 조회
+-- 제목에 '10'이 포함된 게시글 조회 :: 제목 검색
 -- AND BOARD_TITLE LIKE '%10%'
 
 -- 내용에 '10'이 포함된 게시글 조회
 -- AND BOARD_CONTENT LIKE '%10%'
 
 -- 제목 또는 내용에 '10'이 포함된 게시글 조회
-AND (BOARD_TITLE LIKE '%10%' 
-	OR BOARD_CONTENT LIKE '%10%')
+--AND (BOARD_TITLE LIKE '%10%' 
+--	OR BOARD_CONTENT LIKE '%10%')
+	
+-- 작성자 닉네임에 '샘플'이 포함된 게시글 조회
+AND MEMBER_NICKNAME LIKE '%샘플%'
 
 ORDER BY BOARD_NO DESC;
 
