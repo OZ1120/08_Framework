@@ -122,7 +122,6 @@ goToListBtn.addEventListener("click", ()=>{
 
   location.href = url + location.search;
                         // 쿼리스트링
-
 })
 
 
