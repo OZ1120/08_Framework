@@ -166,7 +166,7 @@
                     <!-- 특정 페이지로 이동 -->
                     
                     <!-- <th:block th:each=" i : ${#numbers.sequence(pagination.startPage,pagination.endPage)}"> -->
-                    <th:block th:each=" i : *{#numbers.sequence(startPage,endPage)}">
+                    <th:block th:if="*{startPage lt endPage}" th:each=" i : *{#numbers.sequence(startPage,endPage)}">
                         
                         <!-- 현재 보고있는 페이지 -->
                         <!-- <li th:if="${i==pagination.currentPage}"> -->
@@ -178,6 +178,13 @@
                         <li th:unless="${i==pagination.currentPage}">  
                             <a th:href="@{/board/{boardCode} (boardCode=${boardCode}, cp=${i},key=${param.key}, query=${param.query})}" 
                                th:text="${i}">이동할 페이지</a> 
+                        </li>
+                    </th:block>
+
+                    <!-- 일치하는 게시글이 없을 경우 -->
+                    <th:block th:unless="*{startPage lt endPage}">
+                        <li>
+                            <a class="current">1</a>
                         </li>
                     </th:block>
 
