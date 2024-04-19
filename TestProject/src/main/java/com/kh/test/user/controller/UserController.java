@@ -8,34 +8,53 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.kh.test.user.model.dto.User;
 import com.kh.test.user.model.service.UserService;
 
+import lombok.RequiredArgsConstructor;
+
 
 
 
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
-
-	@Autowired
-	private UserService service;
+	private final UserService service;
 
 
 	@GetMapping("searchId")
 	public String searchId(
-		@RequestParam("userId") String userId,
-		Model model) {
-
-		User user = service.searchId( userId);
+			@RequestParam("userId")String userId, Model model
+			) {
 		
-		if(user!= null) {
+		User user = service.searchId(userId);
+		
+		String path = null;
+		
+		if(user != null) {
 			model.addAttribute(user);
-			return "/searchSuccess";
-			
+			path = "/searchSuccess";
+		}else {
+			path = "/searchFail";
 		}
-		else {
-			return "/searchFail";
-		}
-
+		
+		
+		return path;
 	}
+	
+	
+	
+	/*
+	 * @GetMapping("searchId") public String searchId(
+	 * 
+	 * @RequestParam("userId") String userId, Model model) {
+	 * 
+	 * User user = service.searchId( userId);
+	 * 
+	 * if(user!= null) { model.addAttribute(user); return "/searchSuccess";
+	 * 
+	 * } else { return "/searchFail"; }
+	 * 
+	 * }
+	 */
 
 
 

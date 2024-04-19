@@ -13,9 +13,14 @@ public class UserServiceImpl implements UserService {
 	private UserMapper mapper;
 	
 	@Override
-	public User searchId( String userId) {
-		
+	public User searchId(String userId) {
 		return mapper.searchId(userId);
 	}
+	
+	/*
+	 * @Override public User searchId( String userId) {
+	 * 
+	 * return mapper.searchId(userId); }
+	 */
 
 }

@@ -16,12 +16,12 @@
       <th>회원나이</th>
     </thead>
 
-    <tbody id="tbody" th:if="${user!=null}">
+    <tbody id="tbody" th:if="${user!=null}" th:object="${user}">
       <tr>
-        <td th:text="${user.userNo}"></td>
-        <td th:text="${user.userId}"></td>
-        <td th:text="${user.userName}"></td>
-        <td th:text="${user.userAge}"></td>
+        <td th:text="*{userNo}"></td>
+        <td th:text="*{userId}"></td>
+        <td th:text="*{userName}"></td>
+        <td th:text="*{userAge}"></td>
       </tr>
     </tbody>
 

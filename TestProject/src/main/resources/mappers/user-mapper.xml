@@ -4,9 +4,16 @@
 
 	<!-- 회원 정보 조회 -->
 	<select id="searchId" resultType="User">
+		SELECT USER_NO,USER_ID, USER_NAME, USER_AGE
+		FROM TB_USER
+		WHERE USER_ID = #{userId}
+	</select>
+
+	<!-- 회원 정보 조회 -->
+	<!-- <select id="searchId" resultType="User">
 		SELECT USER_NO, USER_ID,USER_NAME,USER_AGE
 		FROM TB_USER
 		WHERE USER_ID = #{userId}	
-	</select>
+	</select> -->
 	
 </mapper>
