@@ -186,13 +186,14 @@ const profile = document.querySelector("#profile");
   // 프로필 이미지가 새로 업로드 되거나 삭제 되었음을 기록하는
   // 상태 변수
   // -1 : 초기 상태(변화없음)
-  // 0 : vmfhvlf dlalwl tkrwp
+  // 0 : 프로필 이미지 삭제
   //  1  : 새이미지 선택
   let statusCheck = -1;
 
   // input tupe="file" 태그가의 값이 변경되었을 때
   // 변경된 상태를 백업해서 저장할 변수
   // -> 파일이 선택/취소된 input을 복제해서 저장
+  // :: 백업해서 동작하게 하려고 만든거
 
   // 요소.cloneNode(true/false) : 요소 복제(true 작성 시 하위 요소도 복제)
   let backupInput;
@@ -224,7 +225,7 @@ if(profile != null){
     console.log("e.target",e.target);// input
     console.log("e.target.value",e.target.value);// 변경된 값(파일명)
     ;// 선택된 파일에 대한 정보가 담긴 배열 반환
-    // -> 왜 배열?? multiple 옵션에 대한 대비
+    // -> 왜 배열?? multiple 옵션에 대한 대비(::여러개 선택하면 배열로 바꿔)
     console.log("e.target.files",e.target.files);
 
     // 업로드된 파일이 1개 있으면 files[0]에 저장됨
@@ -259,8 +260,8 @@ if(profile != null){
       // 화면에 추가된 백업본에는 이벤트 리스너가 존재하지 않기 때문에 추가
       imageInput.addEventListener("change", changeImageFn) ;
 
-      // 한번에 화면 추가된 요소는 재사용 불가능
-      // backupInpu의 백업본이 temp를 backupInput을호 변경
+      // 한번에 화면 추가된 요소(backupInpu)는 재사용 불가능
+      // backupInpu의 백업본이 temp를 backupInput으로 변경
       backupInput = temp;
 
 
@@ -332,6 +333,7 @@ if(profile != null){
       statusCheck = 1;
 
       // 파일이 선택된 input을 복제해서 백업
+      // 파일선택된 imageInput의 값을 cloneNode(복제)!
       backupInput = imageInput.cloneNode(true);
 
     })

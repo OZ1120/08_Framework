@@ -34,11 +34,12 @@
 
           * application/x-www-form-urlencoded (기본값)
           - URL 인코딩된 "문자열"로 서버에 제출
+            (String 타입- 문자만)
 
           * multipart/form-data (무조건 Post에서만 동작)
           - 제출되는 여로 데이터 타입에 맞춰서 인코딩하여 제출
             문자열 -> String
-            숫자 -> String -> int/double(Spring 이 처림) 
+            숫자 -> String -> int/double(Spring이 처리) 
             파일 -> 2진 데이터
 
           * text/plain

@@ -249,9 +249,9 @@ public class MyPageController {
 	
 	/* 
 	 * Spring 에서 파일 업로드를 처리하는 방법
-	 * - enctype="multipart/form-datd"로 클라이언트 요욫
+	 * - enctype="multipart/form-datd"로 클라이언트 요청
 	 * 이를 MultiPartRecolver를 이용해서
-	 *  섞여있는 파라미터를 ㄹ분리
+	 *  섞여있는 파라미터를 분리
 	 *  
 	 *  문자열 , 숫자 -> String
 	 *  파일		  -> multipartFile
