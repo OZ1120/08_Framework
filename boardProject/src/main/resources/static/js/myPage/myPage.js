@@ -248,19 +248,18 @@ if(profile != null){
       const temp = backupInput.cloneNode(true);
 
 
-      // input 요소 다음에 백업 요소 추라
+      // input 요소 다음에 백업 요소 추가
       imageInput.after(backupInput);
-
-      // 화면에 존재하는 기존 input 제거
+      // 화면에 존재하는 기존 input 제거 
       imageInput.remove();
 
-      // imageInput 변수에 백업을 대입해서 대신하도록 함 
+      // imageInput 변수에 백업을 대입해서 대신하도록 함 :: input자리에 backup남음
       imageInput = backupInput;
 
       // 화면에 추가된 백업본에는 이벤트 리스너가 존재하지 않기 때문에 추가
       imageInput.addEventListener("change", changeImageFn) ;
 
-      // 한번에 화면 추가된 요소(backupInpu)는 재사용 불가능
+      // 한번에 화면 추가된 요소(backupInput)는 재사용 불가능
       // backupInpu의 백업본이 temp를 backupInput으로 변경
       backupInput = temp;
 
@@ -298,11 +297,7 @@ if(profile != null){
         // backupInpu의 백업본이 temp를 backupInput을호 변경
         backupInput = temp;
 
-
-
       }
-
-
 
 
       return;

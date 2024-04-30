@@ -50,12 +50,13 @@ public class BoardController {
 	 * @return
 	 * 
 	 * - /board/OOO
-	 *  / board 이하 1레벨 자리에 숫자로된 요청주소가
+	 *  /board 이하 1레벨 자리에 숫자로된 요청주소가
 	 *   작성되어 있을 때만 동작 -> 정규 표현식 이용
+	 *   :: OOO 자리에 숫자만 들어있을때 동작
 	 *   
 	 *   [0-9] : 한 칸에 0~9 사이 숫자 입력 가능
 	 *   + : 하나 이상
-	 *   [0-9]+ : 모든 숫자
+	 *   [0-9]+ : 모든 숫자 :: 한칸 이상에 0~9까지 들어올수 있다
 	 */
 	@GetMapping("{boardCode:[0-9]+}")
 	public String selectBoardList(

@@ -99,7 +99,7 @@ function getCompleteCount(){
 
 
 // 새로고침 버튼이 클릭 되었을 때
-reloadBtn.addEventListener('clisk', () =>{
+reloadBtn.addEventListener('click', () =>{
   getTotalCount(); // 비동기로 전체 할 일 개수 조회 
   getCompleteCount(); // 비동기로 완료된 할 일 개수 조회
 })
