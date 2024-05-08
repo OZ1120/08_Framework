@@ -267,12 +267,13 @@ public class MemberController {
 	}
 	
 	
+// 컨트롤러 클래스에서 발생하는 예외 처리
 	
 	//@ExceptionHandler(OracleDatabaxeException.class)
 	// -> memberController 내부에 발생되는
 	//	모든 OracleDatabaxeException을 잡아서 처리하는 메서드
 	
-	/**
+	/** 컨트롤러 클래스발생 예외 처리
 	 * @param e : 던져진 예외 객체
 	 * @param model : Spring에서 데이터 전달용 객체(request)
 	 * @return
@@ -290,6 +291,7 @@ public class MemberController {
 	
 	
 }//
+
 
 /*	Cookie란?
  * - 클라이언트 측(브라우저)에서 관리하는 데이터(파일 형식)
