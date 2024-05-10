@@ -198,11 +198,17 @@ addContent.addEventListener("click", e=> {
   .then(response => response.text()) // :: 응답결과 문자그대로 해석
   .then(result => {
 
-    if(result >0) {
-      alert("댓글이 등록 되었따");
-      commentContent.value = ""; // 작성한 댓글 내용 지우기
+    // result == 작성된 댓글 번호
 
+    if(result >0) { // :: 시퀀스는 0보다 무조건 큼!, 그래서 성공임
+      alert("댓글이 등록 되었습니다");
+      commentContent.value = ""; // 작성한 댓글 내용 지우기
       selectCommentList(); // 댓글 목록을 다시 조회해서 화면에 출력
+
+      /* 알림을 DB에 추가 + 게시글 작성자 접속시 알림 전달 */
+      sendNotificationFn("insertComment", `${location.pathname}?cn=${result}`,boardNo);
+                                                                  //psot매핑 결과
+                                                                  //댓글 번호 이용 위치이동
     } else{
       alert("댓글 등록 실패");
     }
@@ -318,9 +324,12 @@ fetch("/comment", {
 .then(result => {
 
   if(result >0) {
-    alert("답글이 등록 되었따");
+    alert("답글이 등록 되었습니다");
     selectCommentList(); // 댓글 목록을 다시 조회해서 화면에 출력 
                          //:: 다시 화면 만드니까 답글은 자동으로 사라짐
+
+     /* 알림을 DB에 추가 + 게시글 작성자 접속시 알림 전달 */
+    sendNotificationFn("insertComment", `${location.pathname}?cn=${result}`,boardNo);
   } else{
     alert("답글 등록 실패");
   }
