@@ -34,7 +34,7 @@ public class TestWebsocketHandler extends TextWebSocketHandler {
 	
 	
 	
-	//  클라이언트와 연겨이 돤료되고, 통신할 준비가 되면 실행
+	//  클라이언트와 연겨이 완료되고, 통신할 준비가 되면 실행
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		
