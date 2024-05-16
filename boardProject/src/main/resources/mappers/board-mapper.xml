@@ -55,7 +55,8 @@
    		/>
    		
    </resultMap>
-  
+   
+  <!-- 게시글 종류 조회 -->
   <select id="selectBoardTypeList">
  	SELECT BOARD_CODE "boardCode", BOARD_NAME "boardName"
 	FROM BOARD_TYPE
