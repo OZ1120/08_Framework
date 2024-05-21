@@ -14,7 +14,7 @@ import edu.kh.project.board.model.dto.Board;
 @Mapper
 public interface BoardMapper {
 
-	/**
+	/** 게시판 종류 조회
 	 * @return
 	 */
 	List<Map<String, Object>> selectBoardTypeList();
@@ -35,7 +35,7 @@ public interface BoardMapper {
 	List<Board> selectBoardList(int boardCode, RowBounds rowBounds);
 
 
-	/**
+	/** 게시글 상세 조회
 	 * @param map
 	 * @return
 	 */

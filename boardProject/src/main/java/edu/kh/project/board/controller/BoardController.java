@@ -63,7 +63,6 @@ public class BoardController {
 		@PathVariable("boardCode") int boardCode,
 		@RequestParam(value="cp", required = false, defaultValue="1") int cp,
 		Model model, // request scope 값 전달
-		
 		@RequestParam Map<String, Object> paramMap // ::파라미터값 전부 얻어오기
 		) {
 		
