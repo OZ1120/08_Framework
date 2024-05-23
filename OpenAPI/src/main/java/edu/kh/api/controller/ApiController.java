@@ -21,7 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 public class ApiController {
 	
 	
@@ -110,8 +113,9 @@ public class ApiController {
 		StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst"); /*URL*/
 		
 		//주소?serviceKey=서비스키
+		//  ? 뒷부분 쿼리 스트링
 		
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8")+ serviceKey); /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8")+ "=" +  serviceKey); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8")    + "=" + URLEncoder.encode(String.valueOf(pageNo), "UTF-8")); /*페이지번호*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode(String.valueOf(numOfRows), "UTF-8")); /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("dataType","UTF-8")  + "=" + URLEncoder.encode(dataType, "UTF-8")); /*요청자료형식(XML/JSON) Default: XML*/
@@ -164,7 +168,7 @@ public class ApiController {
         System.out.println(sb.toString()); // 결과 출력
         
         //자바스크립트 객체 모양을 가지고 있는 문자열 :: 여기까지가 시험 범위
-        //------------------------------------------------------------------------------
+        //-------------- ----------------------------------------------------------------
         
         // JSONObject : Spring에서 제공하는 JSON 다루기 객체
         JSONObject j1 = new JSONObject(sb.toString()); // JSONException : json모양 아니라 발생하는 예외
@@ -240,7 +244,7 @@ public class ApiController {
 		
 		return "ex2";
 	}
-	
-	
-
 }
+	
+	
+	
